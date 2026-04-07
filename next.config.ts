@@ -11,6 +11,15 @@ import createNextIntlPlugin from "next-intl/plugin";
 
 const config: NextConfig = {
   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "assets.usul.ai",
+        pathname: "/**",
+      },
+    ],
+  },
   turbopack: {
   },
   headers: async () => {
