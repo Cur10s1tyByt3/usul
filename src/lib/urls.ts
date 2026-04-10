@@ -58,6 +58,7 @@ export const navigation = {
   donate: () => "/donate",
   login: () => "/login",
   profile: () => "/profile",
+  plans: () => "/plans",
   chat: {
     all: () => "/chat",
     byId: (chatId: string) => `/chat/${chatId}`,

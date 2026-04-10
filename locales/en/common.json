@@ -256,5 +256,75 @@
   "donation": {
     "title": "🌙✨ Help Usul Grow in Ramadan ✨🌙",
     "message": "Click here to donate to Usul"
+  },
+  "plans": {
+    "title": "Plans",
+    "subtitle": "Choose a tier for web use, tokens, and API access.",
+    "featuresSectionTitle": "Features",
+    "recommended": "Recommended",
+    "period": {
+      "perDay": "per day",
+      "perMonth": "per month"
+    },
+    "free": {
+      "name": "Free",
+      "price": "$0",
+      "tokensLine": "Limited daily tokens",
+      "summary": "Limited daily AI Chat access. For testing and exploration.",
+      "cta": "Sign up",
+      "featureItems": [
+        { "text": "Web app & search", "included": true },
+        { "text": "API access", "included": false },
+        { "text": "Professional & commercial use", "included": false },
+        { "text": "Pay-as-you-go beyond included tokens", "included": false }
+      ]
+    },
+    "starter": {
+      "name": "Starter",
+      "price": "$5",
+      "tokensLine": "1M tokens per month",
+      "summary": "For personal use and small projects.",
+      "cta": "Subscribe",
+      "featureItems": [
+        { "text": "Web app & search", "included": true },
+        { "text": "API access", "included": false },
+        { "text": "Professional & commercial use", "included": false },
+        { "text": "Pay-as-you-go beyond included tokens", "included": false }
+      ]
+    },
+    "professional": {
+      "name": "Professional",
+      "price": "$25",
+      "tokensLine": "5M tokens per month",
+      "summary": "Best value for research and professional use.",
+      "cta": "Subscribe",
+      "featureItems": [
+        { "text": "Web app & search", "included": true },
+        { "text": "API access", "included": true },
+        { "text": "Professional & commercial use", "included": true },
+        {
+          "text": "Pay-as-you-go beyond included tokens",
+          "included": true,
+          "note": "$5 per 1M tokens after your monthly allowance."
+        }
+      ]
+    },
+    "enterprise": {
+      "name": "Enterprise",
+      "price": "$100",
+      "tokensLine": "20M tokens per month",
+      "summary": "Best for enterprises and startups with high volumes.",
+      "cta": "Subscribe",
+      "featureItems": [
+        { "text": "Web app & search", "included": true },
+        { "text": "API access", "included": true },
+        { "text": "Professional & commercial use", "included": true },
+        {
+          "text": "Pay-as-you-go beyond included tokens",
+          "included": true,
+          "note": "$4.50 per 1M tokens after your monthly allowance."
+        }
+      ]
+    }
   }
 }
