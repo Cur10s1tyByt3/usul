@@ -8,3 +8,5 @@ export const AIRTABLE_FORMS = {
   FEEDBACK: { id: "pag0nTFmLJo2zrtkk", name: "Feedback", height: 1100 },
   VOLUNTEER: { id: "pag6pBefylZUs0bF2", name: "Volunteer", height: 1100 },
 };
+
+export const API_DOCS_URL = "https://api.usul.ai/docs";

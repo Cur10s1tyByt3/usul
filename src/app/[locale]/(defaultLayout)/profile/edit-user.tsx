@@ -22,21 +22,25 @@ import { toast } from "sonner";
 import { z } from "zod";
 
 export default function EditUser() {
+  const t = useTranslations("profile");
+
   return (
     <RequireAuth
       skeleton={
-        <div className="flex max-w-xl flex-col gap-10">
-          <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-10">
+          <Skeleton className="h-10 w-80" />
+
+          <div className="flex max-w-xl flex-col gap-2">
             <Skeleton className="h-3.5 w-30" />
             <Skeleton className="h-9 w-full" />
           </div>
 
-          <div className="flex flex-col gap-2">
+          <div className="flex max-w-xl flex-col gap-2">
             <Skeleton className="h-3.5 w-30" />
             <Skeleton className="h-9 w-full" />
           </div>
 
-          <div className="flex flex-col gap-2">
+          <div className="flex max-w-xl flex-col gap-2">
             <Skeleton className="h-3.5 w-30" />
             <Skeleton className="h-9 w-full" />
           </div>
@@ -45,7 +49,14 @@ export default function EditUser() {
         </div>
       }
     >
-      {(data) => <EditUserForm session={data} />}
+      {(data) => (
+        <div className="flex flex-col gap-10">
+          <h1 className="text-4xl font-bold lg:text-5xl">
+            {t("greeting", { name: data.user.name })}
+          </h1>
+          <EditUserForm session={data} />
+        </div>
+      )}
     </RequireAuth>
   );
 }
@@ -66,6 +77,8 @@ const EditUserForm = ({ session }: { session: Data }) => {
       name: session.user.name,
     },
   });
+  const nameValue = form.watch("name");
+  const shouldShowSaveButton = nameValue !== session.user.name;
 
   const { mutate, isPending } = useMutation({
     mutationFn: (data: FormData) =>
@@ -111,11 +124,13 @@ const EditUserForm = ({ session }: { session: Data }) => {
           <Input id="email" type="email" value={session.user.email} disabled />
         </div>
 
-        <div>
-          <Button type="submit" isLoading={isPending}>
-            {t("profile.save-changes")}
-          </Button>
-        </div>
+        {shouldShowSaveButton && (
+          <div>
+            <Button type="submit" isLoading={isPending}>
+              {t("profile.save-changes")}
+            </Button>
+          </div>
+        )}
       </form>
     </Form>
   );
