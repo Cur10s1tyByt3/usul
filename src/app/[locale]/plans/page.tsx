@@ -93,16 +93,7 @@ export default async function PlansPage({
     ];
 
     return (
-        <Container className="py-26 md:pt-36">
-            <header className="mx-auto mb-14 max-w-2xl text-center">
-                <h1 className="text-foreground text-4xl font-bold tracking-tight sm:text-5xl">
-                    {t("plans.title")}
-                </h1>
-                <p className="text-muted-foreground mt-4 text-lg text-pretty">
-                    {t("plans.subtitle")}
-                </p>
-            </header>
-
+        <Container className="py-26 md:pt-40">
             <div
                 className={cn(
                     "mx-auto grid max-w-6xl gap-6",

@@ -49,63 +49,62 @@ export default function ApiInfo() {
   };
 
   return (
-    <div className="mt-10 flex max-w-xl flex-col gap-2">
+    <div className="mt-6 flex flex-col gap-2">
       <Label htmlFor="api-key">{t("label")}</Label>
-      <div className="relative">
-        <Input
-          id="api-key"
-          type={isVisible ? "text" : "password"}
-          value={apiKey}
-          disabled
-          className="pr-28"
-        />
+      <div className="flex flex-col gap-2 md:flex-row md:items-center">
+        <div className="relative w-full flex-1">
+          <Input
+            id="api-key"
+            type={isVisible ? "text" : "password"}
+            value={apiKey}
+            disabled
+            className="pr-28"
+          />
 
-        <div className="absolute top-1/2 right-1 flex -translate-y-1/2 items-center">
-          <Button
-            type="button"
-            size="icon"
-            variant="ghost"
-            className="size-7"
-            onClick={() => setIsVisible((previous) => !previous)}
-            tooltip={
-              isVisible
-                ? t("hide")
-                : t("show")
-            }
-          >
-            {isVisible ? (
-              <EyeOffIcon className="size-4" />
-            ) : (
-              <EyeIcon className="size-4" />
-            )}
-          </Button>
+          <div className="absolute top-1/2 right-1 flex -translate-y-1/2 items-center">
+            <Button
+              type="button"
+              size="icon"
+              variant="ghost"
+              className="size-7"
+              onClick={() => setIsVisible((previous) => !previous)}
+              tooltip={
+                isVisible
+                  ? t("hide")
+                  : t("show")
+              }
+            >
+              {isVisible ? (
+                <EyeOffIcon className="size-4" />
+              ) : (
+                <EyeIcon className="size-4" />
+              )}
+            </Button>
 
-          <Button
-            type="button"
-            size="icon"
-            variant="ghost"
-            className="size-7"
-            onClick={handleCopy}
-            tooltip={t("copy")}
-          >
-            <CopyIcon className="size-4" />
-          </Button>
+            <Button
+              type="button"
+              size="icon"
+              variant="ghost"
+              className="size-7"
+              onClick={handleCopy}
+              tooltip={t("copy")}
+            >
+              <CopyIcon className="size-4" />
+            </Button>
 
-          <Button
-            type="button"
-            size="icon"
-            variant="ghost"
-            className="size-7"
-            onClick={() => setIsRegenerateDialogOpen(true)}
-            tooltip={t("regenerate")}
-          >
-            <RefreshCwIcon className="size-4" />
-          </Button>
+            <Button
+              type="button"
+              size="icon"
+              variant="ghost"
+              className="size-7"
+              onClick={() => setIsRegenerateDialogOpen(true)}
+              tooltip={t("regenerate")}
+            >
+              <RefreshCwIcon className="size-4" />
+            </Button>
+          </div>
         </div>
-      </div>
-
-      <div className="mt-2">
-        <Button type="button" variant="outline" className="gap-2" asChild>
+        <Button type="button" variant="outline" className="gap-4" asChild>
           <a href={API_DOCS_URL} target="_blank" rel="noreferrer">
             {t("docs")}
             <ExternalLinkIcon className="size-4" />

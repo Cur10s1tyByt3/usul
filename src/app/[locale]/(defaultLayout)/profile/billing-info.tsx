@@ -2,8 +2,6 @@
 
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Label } from "@/components/ui/label";
-import { Switch } from "@/components/ui/switch";
 import {
   Tooltip,
   TooltipContent,
@@ -12,7 +10,6 @@ import {
 import { DownloadIcon, ExternalLinkIcon, InfoIcon } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import { useState } from "react";
 import { navigation } from "@/lib/urls";
 
 type InvoiceStatus = "draft" | "paid" | "void";
@@ -55,46 +52,22 @@ const statusBadgeClassName: Record<InvoiceStatus, string> = {
   void: "bg-muted text-muted-foreground",
 };
 
-export default function BillingInfo() {
+type BillingInfoProps = {
+  currentPlanLabel?: string;
+};
+
+export default function BillingInfo({ currentPlanLabel }: BillingInfoProps) {
   const t = useTranslations("profile.billing");
   const commonT = useTranslations("common");
-  const [isPayAsYouGoEnabled, setIsPayAsYouGoEnabled] = useState(true);
 
   return (
     <section className="mt-12">
-      <h2 className="text-2xl font-semibold">{t("title")}</h2>
-
-      <div className="mt-4 rounded-lg border p-4">
-        <p className="text-sm text-muted-foreground">{t("consumed-units-label")}</p>
-        <div className="mt-1 flex flex-wrap items-end gap-2">
-          <p className="text-4xl font-semibold tracking-tight">{t("consumed-units-value")}</p>
-          <p className="pb-1 text-sm text-muted-foreground">
-            / {t("total-token-quota-value")} {t("total-token-quota-label")}
-          </p>
-        </div>
-      </div>
-
-      <div className="mt-6 flex items-center justify-between rounded-lg border p-4">
-        <div className="space-y-0.5">
-          <Label htmlFor="pay-as-you-go-toggle">{t("pay-as-you-go-label")}</Label>
-          <p className="text-sm text-muted-foreground">
-            {isPayAsYouGoEnabled
-              ? t("pay-as-you-go-enabled")
-              : t("pay-as-you-go-disabled")}
-          </p>
-        </div>
-        <Switch
-          id="pay-as-you-go-toggle"
-          checked={isPayAsYouGoEnabled}
-          onCheckedChange={setIsPayAsYouGoEnabled}
-          aria-label={t("pay-as-you-go-label")}
-        />
-      </div>
+      <h2 className="text-2xl font-semibold">{t("section-title")}</h2>
 
       <div className="mt-6 space-y-1 text-sm">
         <p>
           <span className="text-muted-foreground">{t("current-plan-label")} </span>
-          <span>{t("current-plan-value")}</span>
+          <span>{currentPlanLabel ?? t("current-plan-value")}</span>
         </p>
         <p>
           <span className="text-muted-foreground">{t("billing-period-label")} </span>

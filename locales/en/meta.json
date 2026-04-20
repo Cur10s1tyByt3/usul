@@ -32,5 +32,9 @@
   "form-page": {
     "title": "Form",
     "description": "Form"
+  },
+  "plans-page": {
+    "title": "Plans",
+    "description": "Plans"
   }
 }

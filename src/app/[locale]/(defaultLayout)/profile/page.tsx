@@ -1,18 +1,18 @@
 import type { Locale } from "next-intl";
+import type { Metadata } from "next";
 import Container from "@/components/ui/container";
 import { getMetadata } from "@/lib/seo";
 import { navigation } from "@/lib/urls";
 import { getTranslations } from "next-intl/server";
 
 import EditUser from "./edit-user";
-import ApiInfo from "./api-info";
-import BillingInfo from "./billing-info";
+import PlanGatedSections from "./plan-gated-sections";
 
 export const generateMetadata = async ({
   params,
 }: {
   params: Promise<{ locale: Locale }>;
-}) => {
+}): Promise<Metadata> => {
   const { locale } = await params;
   const t = await getTranslations("meta");
 
@@ -28,10 +28,7 @@ export default function ProfilePage() {
   return (
     <Container className="max-w-4xl pt-8 lg:pt-12 2xl:max-w-4xl">
       <EditUser />
-      <div className="mt-10">
-        <ApiInfo />
-      </div>
-      <BillingInfo />
+      <PlanGatedSections />
     </Container>
   );
 }

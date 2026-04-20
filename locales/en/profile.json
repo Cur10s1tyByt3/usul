@@ -19,6 +19,7 @@
   },
   "billing": {
     "title": "Usage & Billing",
+    "section-title": "Billing",
     "consumed-units-label": "Consumed tokens in current billing period (updated about once every 60 minutes)",
     "consumed-units-value": "1,679,354",
     "total-token-quota-label": "Total token quota",
@@ -52,6 +53,17 @@
       "void": "void"
     }
   },
+  "api-section": {
+    "title": "API",
+    "pay-as-you-go-info": "Enable this to keep using the API if your monthly token quota is exceeded.",
+    "pay-as-you-go-price": {
+      "free": "Pay-as-you-go is not available on Free.",
+      "starter": "Pay-as-you-go is not available on Starter.",
+      "professional": "$5 per 1M tokens after your monthly allowance.",
+      "enterprise": "$4.50 per 1M tokens after your monthly allowance."
+    }
+  },
+  "subscribe-button": "Subscribe",
   "success-message": "User updated successfully",
   "save-changes": "Save Changes",
   "greeting": "Salam, {name}"
